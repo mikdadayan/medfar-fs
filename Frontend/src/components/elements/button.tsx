@@ -1,11 +1,12 @@
 import React from "react";
 
 interface Props {
-  id: string;
-  title: string;
+  id?: string;
+  title?: string;
   onClick: (event: React.MouseEvent) => void;
   type: "button" | "submit" | "reset" | undefined;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<Props> = ({
@@ -14,10 +15,11 @@ const Button: React.FC<Props> = ({
   type = "button",
   className,
   onClick,
+  children,
 }) => {
   return (
     <button className={className} onClick={onClick} id={id} type={type}>
-      {title}
+      {title || children}
     </button>
   );
 };

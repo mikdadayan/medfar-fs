@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { User } from "../../shared/User";
 import Header from "../../components/elements/text/header";
 
-// import { useFetchData } from "../../hooks/useFetchData";
-
 import { mockApiUsers } from "../../mock/userData";
 import Button from "../../components/elements/button";
 import Table from "../../components/elements/table/table";

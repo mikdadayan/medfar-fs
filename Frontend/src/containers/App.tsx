@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "../components/common/navbar/navbar";
 import Footer from "../components/common/footer/footer";
-import MainComponent from "../components/main/Main.component";
+import Main from "../components/main/main";
 import "./App.scss";
 
 const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      <MainComponent />
+      <Main />
       <Footer />
     </>
   );

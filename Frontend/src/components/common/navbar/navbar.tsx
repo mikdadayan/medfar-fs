@@ -1,10 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "../../elements/button";
+import { Navmenu } from "./navmenu";
+
 import menuLogo from "../../../assets/bar-menu.svg";
 
 export default function Navbar() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const navbarItems = [
+    { id: 1, label: "Example", link: "/example" },
+    { id: 2, label: "Exam", link: "/exam" },
+  ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -12,27 +24,15 @@ export default function Navbar() {
         <Link className="navbar-brand" to="/">
           MEDFAR
         </Link>
-        <button
+        <Button
+          type="button"
           className="navbar-toggler"
+          onClick={toggleMenu}
           style={{ color: "white" }}
-          onClick={() => setShowMenu(showMenu)}
         >
           <img src={menuLogo} alt="Medfar Logo" />
-        </button>
-        <div className={`navbar-collapse ${showMenu ? "collapse" : ""}`}>
-          <ul className="nav navbar-nav">
-            <li className="nav-item">
-              <Link to="/example" className="nav-link">
-                Example
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/exam" className="nav-link">
-                Exam
-              </Link>
-            </li>
-          </ul>
-        </div>
+        </Button>
+        <Navmenu isMenuOpen={isMenuOpen} items={navbarItems} />
       </div>
     </nav>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export type NavItemType = { id: number; label: string; link: string };

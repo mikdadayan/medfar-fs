@@ -1,4 +1,5 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer
       style={{
@@ -10,7 +11,7 @@ export default function Footer() {
       }}
     >
       <div className="container text-center">
-        <p>&copy; 2022 - Medfar Solutions Cliniques</p>
+        <p>&copy; {currentYear} - Medfar Solutions Cliniques</p>
       </div>
     </footer>
   );

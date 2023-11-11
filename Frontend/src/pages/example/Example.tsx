@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { User } from "../../shared/User";
 import Header from "../../components/elements/text/header";
 
 import { mockApiUsers } from "../../mock/userData";
 import Button from "../../components/elements/button";
 import Table from "../../components/elements/table/table";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export const Example: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
-
-  useEffect(() => {
-    document.title = "Example - My React Application";
-  }, []);
+  useDocumentTitle("Example - My React Application");
 
   const handleLoadUsersClick = () => {
     console.log("Loading users...");

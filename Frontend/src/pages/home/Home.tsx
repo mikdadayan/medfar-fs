@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Header from "../../components/elements/text/header";
 import Paragraph from "../../components/elements/text/paragraph";
 import CustomList from "../../components/elements/text/customList";
 import { instructionsList, lookingForList, otherInfoList } from "./constants";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 const Home: React.FC = () => {
-  useEffect(() => {
-    document.title = "Example - My React Application";
-  }, []);
+  useDocumentTitle("Home - My React Application");
 
   return (
     <div>
-      <h1>MEDFAR Developer Interview Test</h1>
-
+      <Header level={1} text="MEDFAR Developer Interview Test" />
       <div className="row">
         <div className="col-lg-12">
           <Header level={2} text="Introduction" />

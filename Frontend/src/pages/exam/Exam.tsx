@@ -1,18 +1,15 @@
-import React from "react";
+import Header from "../../components/elements/text/header";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-export class Exam extends React.Component {
-  public componentDidMount() {
-    document.title = "Exam - My React Application";
-  }
+export const Exam = () => {
+  useDocumentTitle("Exam - My React Application");
 
-  public render(): JSX.Element {
-    return (
+  return (
+    <div>
+      <Header level={2} text="Exam" />
       <div>
-        <h2>Exam</h2>
-        <div>
-          <span> Here is where your work goes! </span>
-        </div>
+        <span> Here is where your work goes! </span>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};

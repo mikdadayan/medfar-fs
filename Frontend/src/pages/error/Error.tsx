@@ -1,21 +1,17 @@
-import React from "react";
+import Header from "../../components/elements/text/header";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-export class Error extends React.Component<{}, {}> {
-    public constructor(props: any) {
-        super(props);
-        this.state = {};
-    }
+export function Error() {
+  useDocumentTitle("Error - My React Application");
 
-    public componentDidMount() {
-        document.title = "Error - My React Application";
-    }
-
-    public render(): JSX.Element {
-        return (
-            <div>
-                <h1 className="text-danger">Error.</h1>
-                <h2 className="text-danger">An error occurred while processing your request.</h2>
-            </div>
-        );
-    }
+  return (
+    <div>
+      <Header level={1} className="text-danger" text="Error." />
+      <Header
+        level={2}
+        className="text-danger"
+        text="An error occurred while processing your request."
+      />
+    </div>
+  );
 }

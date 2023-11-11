@@ -11,7 +11,7 @@ export default function Main() {
         <Route path={"/"} element={<Home />} />
         <Route path={"/example"} element={<Example />} />
         <Route path={"/exam"} element={<Exam />} />
-        <Route element={<Error />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </main>
   );

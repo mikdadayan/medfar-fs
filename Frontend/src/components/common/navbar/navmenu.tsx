@@ -10,7 +10,12 @@ export const Navmenu = ({ isMenuOpen, items }: Props) => {
     <div className={`navbar-collapse ${isMenuOpen ? "collapse" : ""}`}>
       <ul className="nav navbar-nav">
         {items.map((item) => (
-          <NavItem id={item.id} label={item.label} link={item.link} />
+          <NavItem
+            key={item.id}
+            id={item.id}
+            label={item.label}
+            link={item.link}
+          />
         ))}
       </ul>
     </div>

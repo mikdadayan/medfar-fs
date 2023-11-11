@@ -1,7 +1,7 @@
 import Header from "../../components/elements/text/header";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-export function Error() {
+export const Error: React.FC = () => {
   useDocumentTitle("Error - My React Application");
 
   return (
@@ -14,4 +14,4 @@ export function Error() {
       />
     </div>
   );
-}
+};

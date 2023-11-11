@@ -1,10 +1,10 @@
-import { TableColumns } from "../../../shared/Table";
+import { TableColumns } from "./tableTypes";
 
-type TableHeaderProps = {
+type Props = {
   columns: TableColumns[];
 };
 
-export const TableHeader = ({ columns }: TableHeaderProps) => {
+export const TableHeader: React.FC<Props> = ({ columns }) => {
   return (
     <thead>
       <tr>

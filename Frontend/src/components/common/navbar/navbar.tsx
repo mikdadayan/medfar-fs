@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../../elements/button";
@@ -6,13 +6,16 @@ import { Navmenu } from "./navmenu";
 
 import menuLogo from "../../../assets/bar-menu.svg";
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  const navbarItems = [
-    { id: 1, label: "Example", link: "/example" },
-    { id: 2, label: "Exam", link: "/exam" },
-  ];
+  const navbarItems = useMemo(
+    () => [
+      { id: 1, label: "Example", link: "/example" },
+      { id: 2, label: "Exam", link: "/exam" },
+    ],
+    []
+  );
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -32,8 +35,14 @@ export default function Navbar() {
         >
           <img src={menuLogo} alt="Medfar Logo" />
         </Button>
-        <Navmenu isMenuOpen={isMenuOpen} items={navbarItems} />
+        <Navmenu
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          items={navbarItems}
+        />
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

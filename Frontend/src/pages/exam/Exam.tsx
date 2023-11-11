@@ -1,7 +1,7 @@
 import Header from "../../components/elements/text/header";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-export const Exam = () => {
+export const Exam: React.FC = () => {
   useDocumentTitle("Exam - My React Application");
 
   return (

@@ -1,13 +1,13 @@
 import React from "react";
 
-interface CustomListProps {
+type CustomListProps = {
   items: (string | ListItemProps)[];
-}
+};
 
-interface ListItemProps {
+type ListItemProps = {
   text: string;
   subItems?: string[];
-}
+};
 
 const CustomList: React.FC<CustomListProps> = ({ items }) => {
   return (

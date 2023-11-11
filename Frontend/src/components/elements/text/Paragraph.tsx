@@ -1,10 +1,10 @@
 import React from "react";
 
-interface ParagraphProps {
+type Props = {
   text: string;
-}
+};
 
-const Paragraph: React.FC<ParagraphProps> = ({ text }) => {
+const Paragraph: React.FC<Props> = ({ text }) => {
   return <p>{text}</p>;
 };
 

@@ -1,14 +1,14 @@
 import _ from "lodash";
 
 import { User } from "../../../shared/User";
-import { TableColumns } from "../../../shared/Table";
+import { TableColumns } from "./tableTypes";
 
-type TableBodyProps = {
+type Props = {
   users: User[];
   columns: TableColumns[];
 };
 
-export const TableBody = ({ users, columns }: TableBodyProps) => {
+export const TableBody: React.FC<Props> = ({ users, columns }) => {
   return (
     <tbody>
       {users.map((user) => {

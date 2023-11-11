@@ -1,13 +1,13 @@
 import React from "react";
 
-interface Props {
+type Props = {
   id?: string;
   title?: string;
   onClick: (event: React.MouseEvent) => void;
   type: "button" | "submit" | "reset" | undefined;
   className?: string;
   style?: React.CSSProperties;
-}
+};
 
 const Button: React.FC<Props> = ({
   id,

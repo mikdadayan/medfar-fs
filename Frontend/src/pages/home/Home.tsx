@@ -6,7 +6,7 @@ import CustomList from "../../components/elements/text/customList";
 import { instructionsList, lookingForList, otherInfoList } from "./constants";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   useDocumentTitle("Home - My React Application");
 
   return (
@@ -27,5 +27,3 @@ const Home: React.FC = () => {
     </div>
   );
 };
-
-export default Home;

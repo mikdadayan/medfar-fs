@@ -1,9 +1,10 @@
-import React, { useMemo } from "react";
-import { User } from "../../../shared/User";
-import { TableBody } from "./table-body";
-import { TableHeader } from "./table-header";
+import { useMemo } from "react";
 
-import { TablePaths } from "../../../shared/Table";
+import { TableHeader } from "./table-header";
+import { TableBody } from "./table-body";
+import { TablePaths } from "./tableTypes";
+import { User } from "../../../shared/User";
+import { formatDate } from "../../../shared/functions";
 
 const tableColumns = [
   {
@@ -37,17 +38,17 @@ const tableColumns = [
     label: TablePaths["Date Created"],
     content: (user: User) => (
       <td key={user.id + user.date_created + Math.random()}>
-        {user.date_created}
+        {formatDate(user.date_created)}
       </td>
     ),
   },
 ];
 
-type TableProps = {
+type Props = {
   users: User[];
 };
 
-export default function Table({ users }: TableProps) {
+const Table: React.FC<Props> = ({ users }) => {
   const columns = useMemo(() => tableColumns, []);
 
   return (
@@ -58,4 +59,6 @@ export default function Table({ users }: TableProps) {
       </table>
     </div>
   );
-}
+};
+
+export default Table;

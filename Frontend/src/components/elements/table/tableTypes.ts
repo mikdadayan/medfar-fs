@@ -1,4 +1,4 @@
-import { User } from "./User";
+import { User } from "../../../shared/User";
 
 export enum TablePaths {
   Id = "Id",

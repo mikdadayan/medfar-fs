@@ -1,8 +1,7 @@
-
-export class User {
-    public id: string;
-    public first_name: string;
-    public last_name: string;
-    public email: string;
-    public date_created: string;
+export interface User {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  date_created: string;
 }

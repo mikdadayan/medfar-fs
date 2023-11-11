@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../../pages/home/Home";
-import { Example } from "../../pages/example/Example";
-import { Exam } from "../../pages/exam/Exam";
-import { Error } from "../../pages/error/Error";
+import Home from "../../pages/home/home";
+import { Example } from "../../pages/example/example";
+import { Exam } from "../../pages/exam/exam";
+import { Error } from "../../pages/error/error";
 
 export default function MainComponent() {
   return (

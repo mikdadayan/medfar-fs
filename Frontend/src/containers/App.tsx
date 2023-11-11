@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/common/navbar/Navbar.component";
-import Footer from "../components/common/footer/Footer.component";
+import Navbar from "../components/common/navbar/navbar";
+import Footer from "../components/common/footer/footer";
 import MainComponent from "../components/main/Main.component";
 import "./App.scss";
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <>
       <Navbar />
@@ -12,4 +12,5 @@ export default function App() {
       <Footer />
     </>
   );
-}
+};
+export default App;

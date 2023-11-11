@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import Header from "../../components/elements/text/Header";
-import Paragraph from "../../components/elements/text/Paragraph";
-import CustomList from "../../components/elements/text/CustomList";
 
+import Header from "../../components/elements/text/header";
+import Paragraph from "../../components/elements/text/paragraph";
+import CustomList from "../../components/elements/text/customList";
 import { instructionsList, lookingForList, otherInfoList } from "./constants";
+
 const Home: React.FC = () => {
   useEffect(() => {
     document.title = "Example - My React Application";

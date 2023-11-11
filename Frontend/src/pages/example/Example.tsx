@@ -1,71 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { User } from "../../shared/User";
+import Header from "../../components/elements/text/header";
+
+// import { useFetchData } from "../../hooks/useFetchData";
+
 import { mockApiUsers } from "../../mock/userData";
-export class Example extends React.Component {
-  private users: User[] = [];
+import Button from "../../components/elements/button";
+import Table from "../../components/elements/table/table";
 
-  public componentDidMount() {
+export const Example: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
     document.title = "Example - My React Application";
-  }
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div>
-        <h2>Example</h2>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="tb-container">
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name </th>
-                    <th>Email</th>
-                    <th>Date Created</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.users.map((user) => (
-                    <tr>
-                      <td>{user.id}</td>
-                      <td>{user.first_name}</td>
-                      <td>{user.last_name}</td>
-                      <td>{user.email}</td>
-                      <td>{user.date_created}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <button
-              className="btn btn-info"
-              type="button"
-              id="addressSearch"
-              onClick={() => this.loadUsers()}
-            >
-              Load Users
-            </button>
-          </div>
+  const handleLoadUsersClick = () => {
+    console.log("Loading users...");
+    setUsers(mockApiUsers);
+  };
+
+  // To be Updated ...
+  // const handleLoadUsersClick = () => {
+  //   fetch("http://localhost:3000/User").then((response) => {
+  //     response.json().then((apiUsers) => {
+  //       setUsers(apiUsers);
+  //     });
+  //   });
+  // };
+
+  return (
+    <div>
+      <Header level={2} text={"Example"} />
+      <div className="row">
+        <div className="col-lg-12">
+          <Table users={users} />
+          <Button
+            className="btn btn-info"
+            type="button"
+            id="addressSearch"
+            onClick={handleLoadUsersClick}
+            title={"Load Users"}
+          />
         </div>
       </div>
-    );
-  }
-
-  //   private loadUsers(): void {
-  //     fetch("http://localhost:3000/User")
-  //       .then((response) => {
-  //         response.json().then((apiUsers) => {
-  //           this.users = apiUsers;
-  //           this.forceUpdate();
-  //         });
-  //       })
-  //       .catch((err) => (this.users = mockApiUsers));
-  //   }
-
-  private loadUsers(): void {
-    console.log("Loading users...");
-    this.users = mockApiUsers;
-    this.forceUpdate();
-  }
-}
+    </div>
+  );
+};

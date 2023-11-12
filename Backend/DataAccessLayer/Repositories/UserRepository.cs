@@ -46,7 +46,7 @@ namespace Medfar.Interview.DAL.Repositories
 
             string sqlQuery = @"SELECT * FROM" +
                               " Users " +
-                              "WHERE id = '" + id +"'";
+                              "WHERE id = '" + id + "'";
             SqlCommand command = new SqlCommand(sqlQuery, _dbConnection);
 
             _dbConnection.Open();

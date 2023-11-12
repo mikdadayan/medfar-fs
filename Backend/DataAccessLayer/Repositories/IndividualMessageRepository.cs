@@ -66,7 +66,7 @@ namespace Medfar.Interview.DAL.Repositories
                                  " IndividualMessage " +
                                  " WHERE (subject like '%" + searchString + "%' OR Body like  '%" + searchString + "%' ) ";
             SqlCommand command = new SqlCommand(sqlQuery, _dbConnection);
-            
+
 
             if (fromDate.HasValue)
             {
@@ -76,7 +76,7 @@ namespace Medfar.Interview.DAL.Repositories
             {
                 sqlQuery += " AND SendDate <= '" + toDate + "'";
             }
-            
+
             _dbConnection.Open();
             SqlDataReader reader = command.ExecuteReader();
 

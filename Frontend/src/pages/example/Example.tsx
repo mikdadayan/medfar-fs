@@ -20,7 +20,7 @@ export const Example: React.FC = () => {
 
   const handleLoadUsersClick = () => {
     http
-      .get("http://localhost:3000/User")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/User`)
       .then((response) => {
         setUsers(response.data);
       })

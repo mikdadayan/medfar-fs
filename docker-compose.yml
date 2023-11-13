@@ -1,0 +1,45 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "49447:49447"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:49447
+    depends_on:
+      - db
+    networks:
+      - medfar-network
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_URL=http://localhost:3000
+    depends_on:
+      - backend
+    volumes:
+      - ./Frontend:/src/app
+    networks:
+      - medfar-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Zaq11qaZ
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    networks:
+      - medfar-network
+
+networks:
+  medfar-network:
+    driver: bridge
